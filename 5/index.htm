@@ -1,0 +1,99 @@
+<!doctype html>
+<!--大佬，来看代码了？-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style type="text/css">
+		.bgImg {
+  height: 100%;
+  width: 100%;
+  background: url('https://cdn.pixabay.com/photo/2020/03/09/23/04/plum-4917370_960_720.jpg') no-repeat;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+}
+			       .main {
+            font-family: "Microsoft Yahei", "PingFang", "Arial";
+            text-align: center;
+            /*background-color: #fafafa;*/
+        }
+
+        .p {
+            line-height: 1.5;
+            font-size: 35px;
+            color: #FFFFFF;
+            font-weight: 300;
+        }
+		.p1{
+			text-align: left;
+		}
+		.p2{
+			text-align: center;
+		}
+		.p3{
+			text-align: right;
+		}
+		.p4{
+			text-align: justify;
+		}
+		.p5{
+			text-align:inherit;
+		}
+        .h1 {
+            line-height: 1.5;
+            font-size: 60px;
+            color: #FFFFFF;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .main {
+                width: 1000px;
+                margin: 0 auto;
+                /*background-color: #fff;*/
+            }
+
+            .main {
+                border-left: 1px solid #dcddde;
+                border-right: 1px solid #dcddde;
+                /*background-color: #fafafa;*/
+            }
+
+            .page-content {
+                margin-left: 40px;
+                margin-right: 40px;
+                padding-top: 40px;
+            }
+
+            .footer {
+                margin-top: 135px;
+            }
+
+        }
+	</style>
+</head>
+
+<body class="bgImg">
+	<div class="main">	
+		<div class="h1">
+			<script>
+		var url = window.location.search; 
+		var a = url.substring(url.lastIndexOf('a=')+2, url.lastIndexOf('b=')); 
+		var b = url.substring(url.lastIndexOf('b=')+2, url.lastIndexOf('c=')-1); 
+		var c = url.substring(url.lastIndexOf('c=')+2, url.length); 
+		//document.getElementById("h1").innerHTML=a;
+		document.write(a);
+	</script>
+		</div>
+		<div class="p">
+			<script>
+				var d="\<div class=p" +c+ "\>"+b+"\<div\>"
+				//document.getElementById("demo").innerHTML=d;
+				document.write(d);
+			</script>
+		</div>
+		</div>
+	</body>
+</html>
