@@ -18,7 +18,7 @@ document.getElementById('getState').addEventListener('click', function () {
   mdui.alert(inst.getState());
 });
 
-// event
+ // event
 var drawer = document.getElementById('drawer');
 drawer.addEventListener('open.mdui.drawer', function () {
   console.log('open');
