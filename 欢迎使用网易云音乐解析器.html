@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	meta name="description" content="网易云音乐免费下载">
+<meta name="theme-color" content="#00551B">
+<meta name="application-name" content="网易云音乐免费下载">
+<meta name="robots" content="index, follow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="网易云音乐免费下载">
+<meta property="og:site_name" content="网易云音乐免费下载">
+<meta property="og:description" content="网易云音乐免费下载">
+<script language="javascript" type="text/javascript">
+	var t="",ee="";
+	function setValue()
+	{
+		t = document.getElementById("tt").value;
+		ee=t.slice(0,32);
+		if(ee=="https://music.163.com/#/song?id="){
+			ee=t.slice(32,50);
+			ee="http://music.163.com/song/media/outer/url?id="+ee+".mp3";
+			window.open(ee);
+		}else alert("请输入正确的网址");
+	}
+	var whatdevice = {};
+	var UA = window.navigator.userAgent.toLowerCase();
+	isMobile = /(?:micromessenger|mobile|iphone|ipod|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|windows phone|win ce)/.test(UA);
+	if(isMobile) document.write("\<link rel=\"stylesheet\" type=\"text/css\" href=\"7.css\" /\>");
+	else document.write("\<link rel=\"stylesheet\" type=\"text/css\" href=\"8.css\" /\>");
+</script>
+
+<title>欢迎使用网易云音乐解析器</title>
+
+</head>
+<body>
+<form id="form1">
+<div>
+	<script>
+		if(isMobile){
+			document.write("\<input type=\"text\" id=\"tt\" style=\"width:400px;height:70px;font-size:30px;\"/\>");
+			document.write("\<input type=\"button\" id=\"btnSub\" value=\"下载\" onclick=\"setValue()\" style=\"width:200px;height:70px;color:white; background-color:#006400; font-size:30px;\"  />");	
+		}else{
+			document.write("\<input type=\"text\" id=\"tt\" style=\"width:400px;height:35px;font-size:25px;\"/\>");
+			document.write("\<input type=\"button\" id=\"btnSub\" value=\"下载\" onclick=\"setValue()\" style=\"width:100px;height:35px;color:white; background-color:#006400; font-size:20px;\"  />");	
+		}
+	</script>
+</div>
+</form>
+<p>欢迎使用网易云音乐解析器</p>
+<p>在框里输入网易云音乐的链接</p>
+<p>点击提交，即可下载</p>	
+<p>下载方式:</p>
+<p>电脑右键，音频另存为</p>
+<p>手机长按，下载</p>
+<p>如果喜欢的话就加QQ群741575037</p>
+<script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
+<p id="-gjdq-github-io-gjdq-github-io-">我们的网站<a href="http://gjdq.github.io">gjdq.github.io</a></p>
+</body>
+</html>
