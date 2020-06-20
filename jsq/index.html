@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>B4工具集-计算器 bu40.com</title>
+</head>
+<body>
+
+<div id="btn">
+     <input type="text" name="" id="view" value="0">
+     <ul>
+	<li class="mdui-hoverable">±</li>
+	<li class="mdui-hoverable">(</li>
+	<li class="mdui-hoverable">)</li>
+	<li class="mdui-hoverable">+</li>
+     </ul>
+     <ul>
+        <li class="mdui-hoverable">1</li>
+        <li class="mdui-hoverable">2</li>
+        <li class="mdui-hoverable">3</li>
+        <li class="mdui-hoverable">-</li>
+     </ul>
+     <ul>
+        <li class="mdui-hoverable">4</li>
+        <li class="mdui-hoverable">5</li>
+        <li class="mdui-hoverable">6</li>
+        <li class="mdui-hoverable">*</li>
+     </ul>
+     <ul>
+        <li class="mdui-hoverable">7</li>
+        <li class="mdui-hoverable">8</li>
+        <li>9</li>
+        
+        <li class="mdui-hoverable">/</li>
+     </ul>
+     <ul>
+        <li class="mdui-hoverable">C</li>
+        <li class="mdui-hoverable">0</li>
+        <li class="mdui-hoverable">.</li>
+        <li class="mdui-hoverable">=</li>
+      </ul>
+</div>
+<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<style>
+  #view{
+	text-align: right;
+	padding: 0px 5px;
+	border-radius: 10px;
+	margin: 12px 7px;
+	width: 370px;
+	height: 75px;
+	border: 2px solid #ccc;
+	font-size: 2em;
+	color: #999;
+	outline: none;
+}
+div{border-radius: 20px;
+	width: 400px;
+	height: 580px;
+	background-color: rgb(240,240,240);
+	margin: 0 auto;
+}
+ul{
+	padding: 0px;
+	margin: 0px;
+	margin-left: 17px;
+}
+ul li{
+	font-weight: bold;
+	background-color: rgb(220,220,220);
+	font-size: 2em;
+	border-radius: 20px;
+	margin: 4px 4px 4px 4px;
+	line-height: 86px;
+	text-align: center;
+	width: 84px;
+	height: 84px;
+	list-style: none;
+	float: left;
+	box-shadow: 2px 2px 1px #5555;
+}
+</style>
+<script>
+  window.onload = function(){//浏览器加载完毕时执行
+	clickBtn();
+}
+var i = 1;//约束小数点
+var j = 1;//约束左括号
+var k = 1;//约束右括号
+function clickBtn(){//单击按钮
+	if(!document.getElementById) return false;
+	if(!document.getElementsByTagName) return false;
+	if(!document.getElementById("view")) return false;
+
+	var li = document.getElementsByTagName("li");//获取按钮元素节点
+		for(var i=0;i<li.length;i++){
+		li[i].onclick = function(){//单击相应按钮
+			keyClick(this);
+		}
+	}
+}
+var shu = "";//定义一个字符串
+function xianshi(name){
+	if(!document.getElementById) return false;
+
+	var view = document.getElementById("view");
+	// alert(view.value.charAt(view.value.length-1));
+	shu += name;//进行字符串拼接
+	view.value = shu;//显示
+	}
+function yunsuan(){
+	if(!document.getElementById) return false;
+
+	var view = document.getElementById("view");
+	var jieguo = eval(view.value);
+	/*eval 函数允许 JScript 源代码的动态执行。
+		eval("var mydate = new Date();");
+	  slice() 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。
+		用于删除单个字符  view.value.slice(0,view.vlaue.length-1);
+	*/
+	view.value = jieguo;//显示结果
+	shu = jieguo;//将结果值存到变量中
+}
+function qingping(){
+	if(!document.getElementById) return false;
+
+	var view = document.getElementById("view");
+	view.value = "0";//显示0
+	shu = "";//并将字符串清空
+}
+
+function keyClick(li){//对每个按钮进行处理
+	if(!document.getElementById) return false;
+
+	var view = document.getElementById("view");//获取显示
+	if(li.firstChild.nodeValue=="C"){//如果单击"C"
+		i=1;
+		qingping();//进行清屏操作
+	}else if(li.firstChild.nodeValue=="±"){//单击±按钮执行操作
+		if(isNaN(view.value)){
+			//什么都不执行
+		}else{
+		view.value = 0 - view.value;
+		}
+	}else if(li.firstChild.nodeValue=="0"){//单击0执行操作
+		if(view.value=="0"){
+			//什么都不执行
+		}else{
+			xianshi(li.firstChild.nodeValue);
+		}
+	}else if(li.firstChild.nodeValue==")"){//单击)执行操作
+		if(view.value.charAt(view.value.length-1)=="+"){
+			xianshi("0"+li.firstChild.nodeValue);
+		}else{
+			xianshi(li.firstChild.nodeValue);
+		}
+	}else if(li.firstChild.nodeValue=="."){//单击.执行操作
+		/*var ss = document.getElementById("input");
+			var n = ss.value.indexOf(".");
+			if(n>0){alert('只能输入一位数小数点');*/
+			/*
+			charAt() 返回在指定位置的字符。*/
+		if(i==0){
+			//什么都不执行
+		}else{
+			i=0;
+			if(view.value == 0||view.value.charAt(view.value.length-1)=="+"||view.value.charAt(view.value.length-1)=="-"||view.value.charAt(view.value.length-1)=="*"||view.value.charAt(view.value.length-1)=="/"){
+				xianshi("0.");
+			}else{
+				xianshi(li.firstChild.nodeValue);
+			}
+		}
+		// this.firstChild.nodeValue.match(".")
+	}else if(li.firstChild.nodeValue=="+"||li.firstChild.nodeValue=="-"||li.firstChild.nodeValue=="*"||li.firstChild.nodeValue=="/"){//单击运算符号执行操作
+		if(view.value == 0||view.value.charAt(view.value.length-1)=="("){
+			i=1;
+		xianshi("0"+li.firstChild.nodeValue);
+		}else{
+			if(view.value.charAt(view.value.length-1)=="+"||view.value.charAt(view.value.length-1)=="-"||view.value.charAt(view.value.length-1)=="*"||view.value.charAt(view.value.length-1)=="/"){
+				//什么都不执行
+			}else{
+				i=1;
+				xianshi(li.firstChild.nodeValue);
+			}
+		}
+	}else if(li.firstChild.nodeValue=="="){//单击等号执行操作
+		yunsuan();//进行运算
+	}else{//单击数字按钮执行操作
+		xianshi(li.firstChild.nodeValue);//单击按钮进行显示
+	}
+}
+</script>
+</body>
+</html>
