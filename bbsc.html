@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
 </head>
 <body>
-<meta content="B4工具集,www.bu40.com,表白网站生成器" name=keywords><meta content="B4工具集" name=description>
+<meta content="B4工具集,www.bu40.com,死亡计算器,网易云音乐免费下载" name=keywords><meta content="B4工具集" name=description>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>B4工具集 bu40.com</title>
@@ -25,40 +25,40 @@
   <br>
   <p style="font-size:20px">以下内容不输入默认为自带提示语</p>
   <div class="mdui-textfield">
-    <input class="mdui-textfield-input" placeholder="我观察你很久了" id="a1"></input>
+    <input class="mdui-textfield-input" placeholder="我观察你很久了" id="a1" value="1"></input>
     <div class="mdui-textfield-helper">小标题</div>
   </div>
     <div class="mdui-textfield">
-    <input class="mdui-textfield-input" placeholder="小姐姐做我对象好不好" id="a2"></input>
+    <input class="mdui-textfield-input" placeholder="小姐姐做我对象好不好" id="a2" value=""></input>
     <div class="mdui-textfield-helper">大标题</div>
   </div>
       <div class="mdui-textfield">
-    <input class="mdui-textfield-input" placeholder="小姐姐终于同意了，我爱你" id="a3"></input>
+    <input class="mdui-textfield-input" placeholder="小姐姐终于同意了，我爱你" id="a3" value=""></input>
     <div class="mdui-textfield-helper">点确定的提示语</div>
   </div>
   <div class="mdui-textfield">
-  <textarea class="mdui-textfield-input" placeholder="小姐姐再考虑一下呗 你是我见过的最帅气善良可爱的女孩 一生一世爱你" id="a4"></textarea>
+  <textarea class="mdui-textfield-input" placeholder="小姐姐再考虑一下呗 你是我见过的最帅气善良可爱的女孩 一生一世爱你" id="a4" value=""></textarea>
   <div class="mdui-textfield-helper">点取消的提示语 用回车或空格隔开</div>
 </div>
 <script>
   var a="";
-  function sc(){
-      a="www.bu40.com/bb.htm#"+$('#a1').value+'&'+$('#a2').value+'&'+$('#a3').value+'&'+$('#a4').value;
-  }
-
-  function open(){
+  function open2(){
     sc();
-    window.open(a);
+    alert(a);
+   // window.open(a);
   }
    function codwz(){
     sc();
     alert("正在开发，敬请期待");
+  } 
+  function sc(){
+      a="www.bu40.com/bb.htm#"+document.getElementById('a1').value+'&'+document.getElementById('a2').value+'&'+document.getElementById('a3').value+'&'+document.getElementById('a4').value;
   }
+
 </script>
 <br>
-<button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="sc()">生成链接</button>
-<button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="open()">打开</button>
-<button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="sc()" data-clipboard-text=a>复制链接</button>
+<button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="open2()">打开</button>
+<button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="sc()" data-clipboard-text="fff">复制链接</button>
 <button class="mdui-btn mdui-btn-raised mdui-ripple" onclick="codwz()">复制短网址链接</button>
 </div>
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
