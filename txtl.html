@@ -3,7 +3,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-<meta content="B4工具集" name=keywords><meta content="在线文本行右边删去N个字符" name=description>
+<meta content="B4工具集" name=keywords><meta content="在线文本行左边/右边删去/保留N个字符" name=description>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>B4工具集-文本行右边删去N个字符 bu40.com</title>
@@ -33,16 +33,37 @@ function set_(){
   var b=a.split("\n"); 
   var l=b.length;
   var p="";
+  var xz2=$("#xz").val();
+  var lr2=$("#lr").val();
   for(i=0;i<l;i++){
-    b[i]=b[i].slice(0,b[i].length-zx2);
+    if(xz2==2){
+      if(lr2==2)
+      b[i]=b[i].slice(b[i].length-zx2,b[i].length);
+      else
+      b[i]=b[i].slice(0,zx2);
+    }else{
+      if(lr2==2)
+      b[i]=b[i].slice(0,b[i].length-zx2);
+      else
+      b[i]=b[i].slice(zx2,b[i].length);
+    }
+    
     p=p+b[i]+"<br>";
   }
   document.getElementById("sc").innerHTML=p;
 }
 self.setInterval("set_()",5);
 </script>
-<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本行右边删去N个字符</p>
+<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本行左/右边删去/保留N个字符</p>
 <div class="mdui-textfield">
+  <select class="mdui-select" id="xz">
+    <option value="1">删去</option>
+    <option value="2">保留</option>
+  </select>
+  <select class="mdui-select" id="lr">
+    <option value="1">左</option>
+    <option value="2">右</option>
+  </select>
 	<label class="mdui-textfield-label">字数</label>
 	<textarea class="mdui-textfield-input" id="zx">aaa</textarea>
 </div>
@@ -50,7 +71,7 @@ self.setInterval("set_()",5);
 	<label class="mdui-textfield-label">要处理的内容</label>
 	<textarea class="mdui-textfield-input" id="nr">aaa</textarea>
 </div>
-<p class="mdui-typo-headline" id="sc"></p>
+<p class="mdui-typo-title" id="sc"></p>
 </div>
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
