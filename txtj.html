@@ -3,10 +3,10 @@
 <html>
 <head>
 	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-<meta content="B4工具集" name=keywords><meta content="在线文本行去空行" name=description>
+<meta content="B4工具集" name=keywords><meta content="在线文本行左边/右边添加N个字符" name=description>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>B4工具集-文本行去空行 bu40.com</title>
+  <title>B4工具集-文本行左/右边添加N个字符 bu40.com</title>
 </head>
 <body>
 
@@ -33,27 +33,35 @@ function set_(){
   var b=a.split("\n"); 
   var l=b.length;
   var p="";
-  var xz2=$("#xz").val();
   var lr2=$("#lr").val();
+  var tj=$("#tj").val();
   for(i=0;i<l;i++){
-    if(b[i]!="")
+      if(lr2==2)
+      b[i]=b[i]+tj;
+      else
+      b[i]=tj+b[i];
     p=p+b[i]+"<br>";
   }
   document.getElementById("sc").innerHTML=p;
 }
 self.setInterval("set_()",5);
 </script>
-<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">去空行</p>
+<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本行左/右添加N个字符</p>
+<div class="mdui-textfield">
+  <select class="mdui-select" id="lr">
+    <option value="1">左</option>
+    <option value="2">右</option>
+  </select>
+</div>
+<div class="mdui-textfield">
+	<label class="mdui-textfield-label">添加内容</label>
+	<textarea class="mdui-textfield-input" id="tj">aaa</textarea>
+</div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">要处理的内容</label>
 	<textarea class="mdui-textfield-input" id="nr">aaa</textarea>
 </div>
-<!--div class="mdui-textfield">
-	<label class="mdui-textfield-label">结果</label>
-	<textarea class="mdui-textfield-input" id="sc"></textarea>
-</div-->
-<p>结果</p>
-<div id="sc"></div>
+<p class="mdui-typo-title" id="sc"></p>
 </div>
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
