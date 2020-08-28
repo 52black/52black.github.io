@@ -25,10 +25,15 @@
 </br>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
+var ls1="";
 function set_(){
-	$("#xx").text( $("#nr").val());
+  if(ls1!=$("#nr").val()){
+  ls1=$("#nr").val();
+  $("#xx").text( $("#nr").val());
 	$("#dx").text( $("#nr").val());
 	$("#szm").text( $("#nr").val());
+  }
+	
 }
 self.setInterval("set_()",5);
 </script>
@@ -40,6 +45,7 @@ self.setInterval("set_()",5);
 <br>大写：<p class="mdui-text-uppercase " id="dx">aa</p>
 <br>首字母大写：<p class="mdui-text-capitalize" id="szm">aa</p>
 </div>
+
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
 </body>
