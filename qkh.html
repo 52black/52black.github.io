@@ -25,29 +25,40 @@
 </br>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
+var ls="";
 function set_(){
-	var a=$("#nr").val();
-  var zx2=$("#zx").val();
-  if (isNaN(zx2))
-  $("#zx").val("0");
+  if(ls!=$("#nr").val()){
+  ls=$("#nr").val();
+  var a=$("#nr").val();
   var i=0;
   var b=a.split("\n"); 
   var l=b.length;
   var p="";
-  var xz2=$("#xz").val();
+  var p2="";
   var lr2=$("#lr").val();
   for(i=0;i<l;i++){
-    if(b[i]!="")
-    p=p+b[i]+"<br>";
+    if(b[i]!=""){
+      p=p+b[i]+"<br>";
+      p2=p2+b[i]+"\n";
+    }
   }
   document.getElementById("sc").innerHTML=p;
+  document.getElementById("an").innerHTML='<button class="mdui-btn mdui-color-pink-accent mdui-ripple btn" data-clipboard-text="'+p2+'">复制</button>';
+  }
 }
 self.setInterval("set_()",5);
 </script>
 <p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">去空行</p>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">要处理的内容</label>
-	<textarea class="mdui-textfield-input" id="nr">aaa</textarea>
+	<textarea class="mdui-textfield-input" id="nr">
+第1行
+
+第2行
+第3行
+
+第4行
+第5行</textarea>
 </div>
 <!--div class="mdui-textfield">
 	<label class="mdui-textfield-label">结果</label>
@@ -55,6 +66,15 @@ self.setInterval("set_()",5);
 </div-->
 <p>结果</p>
 <div id="sc"></div>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<div id="an"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script>
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function(e) {alert("复制成功");});
+    clipboard.on('error', function(e) {alert("复制失败，请升级浏览器");});
+    </script>
 </div>
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
