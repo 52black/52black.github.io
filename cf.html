@@ -6,7 +6,7 @@
 <meta content="B4工具集" name=keywords><meta content="在线文本列合并" name=description>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>B4工具集-在线文本列合并 bu40.com</title>
+  <title>B4工具集-在线文本列拆分 bu40.com</title>
 </head>
 <body>
 
@@ -27,37 +27,37 @@
 <script>
 function set_(){
 	var a=$("#l1").val();
-  var b=$("#l2").val();
-  var e=$("#l").val();
+  var b=$("#l2").val()-1;
+  var d=$("#l").val();
   var c=a.split("\n");
-  var d=b.split("\n"); 
   var i=0;
   var l=0;
-  if (c.length>d.length)
-  l=d.length;
-  else
   l=c.length;
   var p="";
   for(i=0;i<l;i++){
-    p=p+c[i]+e+d[i]+"<br>";
+    var f=c[i].split(d);
+    p=p+f[b]+"<br>";
   }
   document.getElementById("sc").innerHTML=p;
 }
 self.setInterval("set_()",5);
 </script>
-<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本列合并</p>
+<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本列拆分</p>
 
 <div class="mdui-textfield mdui-textfield-floating-label">
-  <label class="mdui-textfield-label">合并分隔符</label>
+  <label class="mdui-textfield-label">分隔符</label>
   <input class="mdui-textfield-input" type="text" id="l" value="--"/>
 </div>
+<select class="mdui-select" mdui-select id="l2">
+  <option value="1">文本列1</option>
+  <option value="2">文本列2</option>
+  <option value="3">文本列3</option>
+  <option value="4">文本列4</option>
+</select>
 <div class="mdui-textfield">
-	<label class="mdui-textfield-label">文本列1</label>
-	<textarea class="mdui-textfield-input" id="l1">aaa</textarea>
-</div>
-<div class="mdui-textfield">
-	<label class="mdui-textfield-label">文本列2</label>
-	<textarea class="mdui-textfield-input" id="l2">aaa</textarea>
+	<label class="mdui-textfield-label">内容</label>
+	<textarea class="mdui-textfield-input" id="l1">aaa--bbb--xxx
+aaa--xxx--dd</textarea>
 </div>
 结果：
 <p class="mdui-typo-title" id="sc"></p>

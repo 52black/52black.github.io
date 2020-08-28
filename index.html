@@ -24,7 +24,7 @@
     <div class="mdui-textfield">
       <i class="mdui-icon material-icons">search</i>
       <input class="mdui-textfield-input" type="text" placeholder="搜索" id="l1"/>
-    </div>`
+    </div>
   <li class="mdui-subheader">子站</li>
   <a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a>
   <a href="http://blog.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a2">博客</a>
@@ -36,7 +36,8 @@
   <a href="https://www.bu40.com/txtl.html" class="mdui-list-item mdui-ripple" target="_blank" id="a7">文本行左/右边删去/保留N个字符</a>
   <a href="https://www.bu40.com/qkh.html" class="mdui-list-item mdui-ripple" target="_blank" id="a8">文本行去空行</a>
   <a href="https://www.bu40.com/txtj.html" class="mdui-list-item mdui-ripple" target="_blank" id="a9">文本行左/右添加n个字符</a>
-  <a href="https://www.bu40.com/txtj.html" class="mdui-list-item mdui-ripple" target="_blank" id="a10">文本列合并</a>
+  <a href="https://www.bu40.com/hb.html" class="mdui-list-item mdui-ripple" target="_blank" id="a10">文本列合并</a>
+  <a href="https://www.bu40.com/cf.html" class="mdui-list-item mdui-ripple" target="_blank" id="a11">文本列拆分</a>
 </div>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
@@ -46,12 +47,14 @@
   if(a!=""){
     $("li").hide();
     $(".mdui-list-item").hide(); 
-     for(i=1;i<11;i++){
-       var h="#a"+i;
+    var h="#a"+i;
+     while($(h).text()!=""){
        if($(h).text().toUpperCase().search(a)!=-1)
        $(h).show();
        else
        $(h).hide();
+       i++;
+       h="#a"+i;
   }
   } 
   else{
