@@ -66,16 +66,17 @@ self.setInterval("set_()",5);
 </div-->
 <p>结果</p>
 <div id="sc"></div>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
-<div id="an"></div>
 
+<!--剪贴板插件-->
+<div id="an"></div>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
     <script>
     var clipboard = new ClipboardJS('.btn');
     clipboard.on('success', function(e) {alert("复制成功");});
-    clipboard.on('error', function(e) {alert("复制失败，请升级浏览器");});
+    clipboard.on('error', function(e) {alert("复制失败，请升级浏览器或ctrl+c复制");});
     </script>
 </div>
+
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
 </body>

@@ -25,7 +25,14 @@
 </br>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
+var ls1="";
+var ls2="";
+var ls3="";
 function set_(){
+  if( ls1!=$("#l1").val()||ls2!=$("#l2").val()||ls3!=$("#l").val()){
+  ls1=$("#l1").val();
+  ls2=$("#l2").val();
+  ls3=$("#l").val();
 	var a=$("#l1").val();
   var b=$("#l2").val();
   var e=$("#l").val();
@@ -38,11 +45,16 @@ function set_(){
   else
   l=c.length;
   var p="";
+  var p2="";
   for(i=0;i<l;i++){
     p=p+c[i]+e+d[i]+"<br>";
+    p2=p2+c[i]+e+d[i]+"\n"
   }
   document.getElementById("sc").innerHTML=p;
+  document.getElementById("an").innerHTML='<button class="mdui-btn mdui-color-pink-accent mdui-ripple btn" data-clipboard-text="'+p2+'">复制</button>';
 }
+  }
+  
 self.setInterval("set_()",5);
 </script>
 <p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本列合并</p>
@@ -62,6 +74,17 @@ self.setInterval("set_()",5);
 结果：
 <p class="mdui-typo-title" id="sc"></p>
 </div>
+
+<!--剪贴板插件-->
+<div id="an"></div>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script>
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function(e) {alert("复制成功");});
+    clipboard.on('error', function(e) {alert("复制失败，请升级浏览器或ctrl+c复制");});
+    </script>
+</div>
+
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
 </body>

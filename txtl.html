@@ -24,8 +24,17 @@
 <div class="mdui-container-fluid">
 </br>
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>
+<script>  
+var ls1="";
+var ls2="";
+var ls3="";
+var ls4="";
 function set_(){
+  if(ls1!=$("#nr").val()||ls2!=$("#zx").val()||ls3!=$("#lr").val()||ls4!=$("#xz").val()){
+  ls1=$("#nr").val();
+  ls2=$("#zx").val();
+  ls3=$("#lr").val();
+  ls4=$("#xz").val();
 	var a=$("#nr").val();
   var zx2=$("#zx").val();
   if (isNaN(zx2))
@@ -34,8 +43,9 @@ function set_(){
   var b=a.split("\n"); 
   var l=b.length;
   var p="";
-  var xz2=$("#xz").val();
+  var p2="";
   var lr2=$("#lr").val();
+  var xz2=$("#xz").val();
   for(i=0;i<l;i++){
     if(xz2==2){
       if(lr2==2)
@@ -48,11 +58,14 @@ function set_(){
       else
       b[i]=b[i].slice(zx2,b[i].length);
     }
-    
+    p2=p2+b[i]+"\n";
     p=p+b[i]+"<br>";
   }
   document.getElementById("sc").innerHTML=p;
+  document.getElementById("an").innerHTML='<button class="mdui-btn mdui-color-pink-accent mdui-ripple btn" data-clipboard-text="'+p2+'">复制</button>';
 }
+  }
+ 
 self.setInterval("set_()",5);
 </script>
 <p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本行左/右边删去/保留N个字符</p>
@@ -74,6 +87,17 @@ self.setInterval("set_()",5);
 </div>
 <p class="mdui-typo-title" id="sc"></p>
 </div>
+
+<!--剪贴板插件-->
+<div id="an"></div>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script>
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function(e) {alert("复制成功");});
+    clipboard.on('error', function(e) {alert("复制失败，请升级浏览器或ctrl+c复制");});
+    </script>
+</div>
+
 <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
 <script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
 </body>
