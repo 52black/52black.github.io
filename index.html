@@ -42,14 +42,14 @@
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
   function set_(){
-	var a=$("#l1").val();
+	var a=$("#l1").val().toUpperCase();
   var i=1;
   if(a!=""){
     $("li").hide();
     $(".mdui-list-item").hide(); 
      for(i=1;i<11;i++){
        var h="#a"+i;
-       if($(h).text().indexOf(a)!=-1)
+       if($(h).text().search(a)!=-1)
        $(h).show();
        else
        $(h).hide();
