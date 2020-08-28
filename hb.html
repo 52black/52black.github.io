@@ -3,10 +3,10 @@
 <html>
 <head>
 	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-<meta content="B4工具集" name=keywords><meta content="在线文本行左边/右边添加N个字符" name=description>
+<meta content="B4工具集" name=keywords><meta content="在线文本列合并" name=description>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>B4工具集-文本行左/右边添加N个字符 bu40.com</title>
+  <title>B4工具集-在线文本列合并 bu40.com</title>
 </head>
 <body>
 
@@ -25,41 +25,38 @@
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 function set_(){
-	var a=$("#nr").val();
-  var zx2=$("#zx").val();
-  if (isNaN(zx2))
-  $("#zx").val("0");
+	var a=$("#l1").val();
+  var b=$("#l2").val();
+  var e=$("#l").val();
+  var c=a.split("\n");
+  var d=b.split("\n"); 
   var i=0;
-  var b=a.split("\n"); 
-  var l=b.length;
+  var l=0;
+  if (c.length>d.length)
+  l=d.length;
+  else
+  l=c.length;
   var p="";
-  var lr2=$("#lr").val();
-  var tj=$("#tj").val();
   for(i=0;i<l;i++){
-      if(lr2==2)
-      b[i]=b[i]+tj;
-      else
-      b[i]=tj+b[i];
-    p=p+b[i]+"<br>";
+    p=p+c[i]+e+d[i]+"<br>";
   }
   document.getElementById("sc").innerHTML=p;
 }
 self.setInterval("set_()",5);
 </script>
-<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本行左/右添加N个字符</p>
-<div class="mdui-textfield">
-  <select class="mdui-select" id="lr">
-    <option value="1">左</option>
-    <option value="2">右</option>
-  </select>
+<p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本列合并</p>
+
+<div class="mdui-textfield mdui-textfield-floating-label">
+  <label class="mdui-textfield-label">合并分隔符</label>
+  <input class="mdui-textfield-input" type="text" id="l"/>
 </div>
 <div class="mdui-textfield">
-	<label class="mdui-textfield-label">添加内容</label>
-	<textarea class="mdui-textfield-input" id="tj">aaa</textarea>
+	<label class="mdui-textfield-label">文本列1</label>
+	<textarea class="mdui-textfield-input" id="l1">aaa</textarea>
 </div>
 <div class="mdui-textfield">
-	<label class="mdui-textfield-label">要处理的内容</label>
-	<textarea class="mdui-textfield-input" id="nr">aaa</textarea>
+	<label class="mdui-textfield-label">文本列2</label>
+	<textarea class="mdui-textfield-input" id="l2">aaa</textarea>
 </div>
 结果：
 <p class="mdui-typo-title" id="sc"></p>
