@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+<meta content="B4工具集" name=keywords><meta content="在线文本行左边/右边删去/保留N个字符" name=description>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>B4工具集-文本行右边删去N个字符 bu40.com</title>
+</head>
+<body>
+
+<div class="mdui-appbar">
+  <div class="mdui-toolbar mdui-color-indigo">
+    <a href="http://www.bu40.com" class="mdui-typo-headline">B4工具集</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="/" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
+  </div>
+</div>
+
+<div class="mdui-container-fluid mdui-m-l-2">
+</br>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>  
+var ls1="";
+var ls2="";
+var ls3="";
+var ls4="";
+function set_(){
+  if(ls1!=$("#bh").val()||ls2!=$("#zx").val()||ls3!=$("#lr").val()||ls4!=$("#xz").val()){
+  ls1=$("#bh").val();
+  ls2=$("#zx").val();
+  ls3=$("#lr").val();
+  ls4=$("#xz").val();
+  $("#bhd").text($("#bh").val());
+  $("#ff").text(ls2);
+  if(ls4.slice(0,8)=="https://")
+  if(ls2)
+  $("#sc").html('<iframe src="'+ls4+'" id="nl" style="filter: grayscale('+(1-ls1*0.01)+') position: absolute; transform: scaleX(-1); width: 100%; height: 500px ;border: 0;" frameborder:"0" ></iframe>');
+  else
+  $("#sc").html('<iframe src="'+ls4+'" id="nl" style="filter: grayscale('+(1-ls1*0.01)+') position: absolute; width: 100%; height: 500px ;border: 0;" frameborder:"0" ></iframe>');
+  else
+  $("#sc").html('网址请以https://开头');
+}
+  }
+ 
+self.setInterval("set_()",5);
+</script>
+
+<div class="mdui-textfield mdui-textfield-floating-label">
+	<label class="mdui-textfield-label ">这里输入网址</label>
+	<textarea class="mdui-textfield-input" id="xz">https://baidu.com</textarea>
+</div>
+<label class="mdui-checkbox ">
+  <input type="checkbox" id="zx"/>
+  <i class="mdui-checkbox-icon"></i>
+  左右翻转
+</label>
+<label class="mdui-checkbox mdui-m-l-4">
+  <input type="checkbox" id="lr"/>
+  <i class="mdui-checkbox-icon"></i>
+  上下翻转
+</label>
+
+  <div class="mdui-col-sm-2">
+	<o class="mdui-text-color-grey-600">饱和度(灰度) <o id="bhd" class="mdui-text-color-blue-800"></o>%</o>
+	<label class="mdui-slider">
+  <input type="range" step="0.1" min="0" max="100" id="bh"/><br><br>
+  </div>
+<br><br>
+<div id="ff" class=" mdui-m-r-1" ></div>
+<div id="sc" class=" mdui-m-r-1" ></div>
+<style id="ifr">
+  
+</style>
+</div>
+
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
+</body>
+</html>

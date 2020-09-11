@@ -31,6 +31,10 @@ function set_(){
   ls1=$("#nr").val();
   $.get("http://api.bu40.com/bcm.php?312",function(data){
     $("#sc").html(data);
+    
+
+   alert(data.items);
+
     });
   }
 	
