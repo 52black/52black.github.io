@@ -35,11 +35,20 @@
 			window.open(ee);
 		}else{ 
 		   ee=t.slice(0,30);
-	  	if(ee="https://music.163.com/song?id="){
+	  	if(ee=="https://music.163.com/song?id="){
 	    	ee=t.slice(30,48);
 	  		ee="http://music.163.com/song/media/outer/url?id="+ee+".mp3";
 	  		window.open(ee);
-	  	}else alert("请输入正确的网址");
+	  	}else{
+			ee=t.slice(0,34);
+			if(ee=="https://y.music.163.com/m/song?id="){
+				ee=t.slice(34,50);
+				ee="http://music.163.com/song/media/outer/url?id="+ee+".mp3";
+	  		window.open(ee);
+			}
+			else alert("请输入正确的网址");
+		  } 
+		  
 		}
 		} 
 		
@@ -51,15 +60,23 @@
 		ee=t.slice(0,32);
 		if(ee=="https://music.163.com/#/song?id="){
 			ee=t.slice(32,50);
-			ee="http://music.163.com/api/song/media?id="+ee+".mp3";
+			ee="http://music.163.com/api/song/lyric?os=pc&id="+ee+"&lv=-1&kv=-1&tv=-1";
 			window.open(ee);
 		}else{ 
 		   ee=t.slice(0,30);
-	  	if(ee="https://music.163.com/song?id="){
+	  	if(ee=="https://music.163.com/song?id="){
 	    	ee=t.slice(30,48);
-	  		ee="http://music.163.com/api/song/media?id="+ee+".mp3";
+			ee="http://music.163.com/api/song/lyric?os=pc&id="+ee+"&lv=-1&kv=-1&tv=-1";
 	  		window.open(ee);
-	  	}else alert("请输入正确的网址");}
+	  	}else{
+			ee=t.slice(0,34);
+			if(ee=="https://y.music.163.com/m/song?id="){
+				ee=t.slice(34,55);
+				ee="http://music.163.com/api/song/lyric?os=pc&id="+ee+"&lv=-1&kv=-1&tv=-1";
+	  			window.open(ee);
+			}else alert("请输入正确的网址");}
+			
+		  } 
 		} 
 		
 	
