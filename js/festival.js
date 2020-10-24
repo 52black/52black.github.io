@@ -13,6 +13,7 @@ if(a!=-1){
       {
         text: '确认',
         onClick: function(inst){
+            window.open("https://baike.baidu.com/item/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/16017417","_blank");
           }
       }
     ]
