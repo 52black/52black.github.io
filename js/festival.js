@@ -23,8 +23,11 @@ if(a!=-1){
 checkCookie();
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
+    var curDate = new Date();
+var curTime = curDate.getTime();
+var endTime = convertTime(curDate,Deadline);
+var disTime = endTime - curTime;
+    var expires = "expires=" + disTime;
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
