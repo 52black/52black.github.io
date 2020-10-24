@@ -42,7 +42,6 @@ function setCookie(cname,cvalue,exdays) {
     }
     return "";
   }
-  
   function checkCookie() {
     var user=getCookie("username");
     if (user != "") {
