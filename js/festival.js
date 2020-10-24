@@ -1,7 +1,7 @@
 function al(){
 var D=new Date();
 var dl=["10-24"];
-var tx=[['1024程序员节快乐','向程序员们致敬，拒绝加班']]
+var tx=[['1024程序员节快乐','向程序员们致敬，拒绝加班','https://baike.baidu.com/item/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/16017417']]
 n=(D.getMonth()+1)+'-'+D.getDate();
 var a=dl.indexOf(n);
 if(a!=-1){
@@ -13,7 +13,7 @@ if(a!=-1){
       {
         text: '确认',
         onClick: function(inst){
-            window.open("https://baike.baidu.com/item/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/16017417","_blank");
+            window.open(tx[a][2],"_blank");
           }
       }
     ]
