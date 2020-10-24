@@ -12,9 +12,9 @@ if(a!=-1){
     buttons: [
       {
         text: '确认',
-        onClick: function(inst){
-            window.open(tx[a][2],"_blank");
-          }
+        // onClick: function(inst){
+        //     window.open(tx[a][2],"_blank");
+        //   }
       }
     ]
   });
