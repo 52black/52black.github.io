@@ -26,7 +26,7 @@
       <input class="mdui-textfield-input" type="text" placeholder="搜索" id="l1"/>
     </div>
   <li class="mdui-subheader">子站</li>
-  <a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a>
+  <!--<a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a>-->
   <a href="http://blog.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a2">博客</a>
   <li class="mdui-subheader">提供的工具</li>
   <a href="https://www.bu40.com/wyy.html" class="mdui-list-item mdui-ripple" target="_blank" id="a3">音乐下载器(仅限网易云)</a>
@@ -110,6 +110,32 @@ function fs() {
     $("#wds").hide();
     $("#qds").hide();
   });
+</script>
+<div class="mdui-panel" mdui-panel>
+    <div class="mdui-panel-item mdui-shadow-0">
+      <div class="mdui-panel-item-header mdui-shadow-0">历史上的今天</div>
+      <div class="mdui-panel-item-body" id="lss">
+        正在加载中……
+      </div>
+    </div>
+  </div>
+<script>
+     $.ajax({
+        type:'GET',
+        url:'https://api.nowtime.cc/v1/today_in_history',
+        dataType:'json',
+      //  data:{url:"http://sss.com"},
+        async:false,
+        success:function(data){
+            var o = eval(data).data;
+            var l=o.push();
+            var h="";
+            for (var i=0;i<l;i++){
+              h+=o[i].year+'年 <span class="mdui-text-color-black-secondary">'+o[i].data+"</span><br>"
+            }
+            $("#lss").html(h);
+        }
+    });
 </script>
 <div class="mdui-typo mdui-m-l-2">
 <a href="https://github.com/52black/52black.github.io" target="_blank">github仓库</a>
