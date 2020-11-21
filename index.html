@@ -1,126 +1,159 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta content="B4工具集,www.bu40.com,网易云音乐免费下载，文本大小写转换器，去除格式" name=keywords><meta content="B4工具集" name=description>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>B4工具集 bu40.com</title>
-  <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-</head>
-<body>
-
-<div class="mdui-appbar">
-  <div class="mdui-toolbar mdui-color-indigo">
-    <a href="javascript:;" class="mdui-typo-headline" >B4工具集</a>
-    <div class="mdui-toolbar-spacer"></div>
-    <a class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#share'}"><i class="mdui-icon material-icons" mdui-tooltip="{content: '分享'}">&#xe80d;</i></a>
-    <a href="javascript:;" onclick="if(fs())alert('收藏失败，请按ctrl+d收藏或手动收藏');" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons" id="add" mdui-tooltip="{content: '收藏'}">&#xe838;</i></a>
-  </div>
-</div>
-
-<div class="mdui-container-fluid">
-
-  <div class="mdui-list">
-    <div class="mdui-textfield">
-      <i class="mdui-icon material-icons">search</i>
-      <input class="mdui-textfield-input" type="text" placeholder="搜索" id="l1"/>
-    </div>
-  <li class="mdui-subheader">子站</li>
-  <a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a>
-  <a href="http://blog.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a2">博客</a>
-  <li class="mdui-subheader">提供的工具</li>
-  <a href="https://www.bu40.com/wyy.html" class="mdui-list-item mdui-ripple" target="_blank" id="a3">音乐下载器(仅限网易云)</a>
-  <a href="https://www.bu40.com/dxx.html" class="mdui-list-item mdui-ripple" target="_blank" id="a4">文本大小写转换器</a>
-  <a href="https://www.bu40.com/txtk.html" class="mdui-list-item mdui-ripple" target="_blank" id="a5">文本去除格式</a>
-  <a href="https://www.bu40.com/emogi.html" class="mdui-list-item mdui-ripple" target="_blank" id="a6">emoji大全</a>
-  <a href="https://www.bu40.com/txtl.html" class="mdui-list-item mdui-ripple" target="_blank" id="a7">文本行左/右边删去/保留N个字符</a>
-  <a href="https://www.bu40.com/qkh.html" class="mdui-list-item mdui-ripple" target="_blank" id="a8">文本行去空行</a>
-  <a href="https://www.bu40.com/txtj.html" class="mdui-list-item mdui-ripple" target="_blank" id="a9">文本行左/右批量添加字符串</a>
-  <a href="https://www.bu40.com/hb.html" class="mdui-list-item mdui-ripple" target="_blank" id="a10">文本列合并</a>
-  <a href="https://www.bu40.com/cf.html" class="mdui-list-item mdui-ripple" target="_blank" id="a11">文本列拆分</a>
-</div>
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<!--这里是搜索-->
-<script>
-  function set_(){
-	var a=$("#l1").val().toUpperCase();
-  var i=1;
-  if(a!=""){
-    $("li").hide();
-    $(".mdui-list-item").hide(); 
-    var h="#a"+i;
-     while($(h).text()!=""){
-       if($(h).text().toUpperCase().search(a)!=-1)
-       $(h).show();
-       else
-       $(h).hide();
-       i++;
-       h="#a"+i;
+ <head> 
+  <meta content="B4工具集,www.bu40.com,网易云音乐免费下载，文本大小写转换器，去除格式" name="keywords" />
+  <meta content="B4工具集" name="description" /> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width" /> 
+  <title>B4工具集 bu40.com</title> 
+  <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css" /> 
+  <style>
+  .yy{
+        border-radius: 15px;!important
   }
-  } 
-  else{
-    $("li").show();
-    $(".mdui-list-item").show();
-  } 
-}
-  self.setInterval("set_()",5);
-</script>
+  .s-12{
+    -webkit-box-shadow:0 7px 8px -4px rgba(0,0,0,.1),0 12px 17px 2px rgba(0,0,0,.07),0 5px 22px 4px rgba(0,0,0,.06);box-shadow:0 7px 8px -4px rgba(0,0,0,.1),0 12px 17px 2px rgba(0,0,0,.07),0 5px 22px 4px rgba(0,0,0,.06)
+  }
+  
+</style>
+ </head>  
 
-<!--分享以及收藏-->
-<div class="mdui-dialog" id="share">
-<center class="mdui-m-t-2">分享</center><br>
-<div class=" mdui-m-r-2 mdui-m-b-4">
-<ul style="list-style:none;margin:0px; ">
-<li style="float:left;" id="d1"></li>
-<li style="float:left;" id="d2" class="mdui-m-l-1"></li>
-</ul>
-<br><br><br>
-</div>
-<script>
-document.getElementById("d1").innerHTML='<a href=\'http://connect.qq.com/widget/shareqq/index.html?url='+window.location.href
-+'&title='+document.title+'&source='+document.title+
-'&desc=&pics=https://s1.ax1x.com/2020/08/29/d7nGdg.png&summary=""\' target="_blank">'+
-'<img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/QQ.svg" width="50" height="50"></a>';
-document.getElementById("d2").innerHTML='<a href=\'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+window.location.href
-+'&title='+document.title+'&desc=&summary=&site='+document.title+
-'&pics=https://s1.ax1x.com/2020/08/29/d7nGdg.png&summary=""\' target="_blank">'+
-'<img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/kj.svg" width="50" height="50"></a>';
-function fs() { 
-    url=window.location.href; 
-    title=document.title; 
-    if (window.sidebar) 
-        window.sidebar.addPanel(title,url,""); 
-    else if(document.all) 
-        window.external.AddFavorite(url,title); 
-    else 
-        return true; 
-} 
-  document.getElementById('share').addEventListener('open.mdui.dialog', function () {
-    tab.handleUpdate();
-  });
-</script>
-
-</div>
-<br>
-<script>
-  var wd=0;
-  var qd=0;
-  $(document).ready(function(){
-    $("#wds").hide();
-    $("#qds").hide();
-  });
-</script>
-<div class="mdui-panel" mdui-panel>
-    <div class="mdui-panel-item mdui-shadow-0">
-      <div class="mdui-panel-item-header mdui-shadow-0">历史上的今天</div>
-      <div class="mdui-panel-item-body" id="lss">
-        正在加载中……
-      </div>
-    </div>
+ <body class="mdui-color-grey-100"> 
+  <div class="mdui-appbar"> 
+   <div class="mdui-toolbar mdui-color-indigo"> 
+    <a href="javascript:;" class="mdui-typo-headline">B4工具集</a> 
+    <div class="mdui-toolbar-spacer"></div> 
+    <a class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#share'}"><i class="mdui-icon material-icons" mdui-tooltip="{content: '分享'}"></i></a> 
+    <a href="javascript:;" onclick="if(fs())alert('收藏失败，请按ctrl+d收藏或手动收藏');" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons" id="add" mdui-tooltip="{content: '收藏'}"></i></a> 
+   </div> 
+  </div> 
+  <div class="mdui-container-fluid mdui-m-l-1 mdui-m-r-1 s-12 yy mdui-color-white mdui-m-t-1"> 
+   <div class="mdui-list"> 
+    <div class="mdui-textfield"> 
+     <i class="mdui-icon material-icons">search</i> 
+     <input class="mdui-textfield-input" type="text" placeholder="搜索" id="l1" /> 
+    </div> 
+    <li class="mdui-subheader">子站</li> 
+    <a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a> 
+    <a href="http://blog.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a2">博客</a> 
+    <li class="mdui-subheader">提供的工具</li> 
+    <a href="https://www.bu40.com/wyy.html" class="mdui-list-item mdui-ripple" target="_blank" id="a3">音乐下载器(仅限网易云)</a> 
+    <a href="https://www.bu40.com/dxx.html" class="mdui-list-item mdui-ripple" target="_blank" id="a4">文本大小写转换器</a> 
+    <a href="https://www.bu40.com/txtk.html" class="mdui-list-item mdui-ripple" target="_blank" id="a5">文本去除格式</a> 
+    <a href="https://www.bu40.com/emogi.html" class="mdui-list-item mdui-ripple" target="_blank" id="a6">emoji大全</a> 
+    <a href="https://www.bu40.com/txtl.html" class="mdui-list-item mdui-ripple" target="_blank" id="a7">文本行左/右边删去/保留N个字符</a> 
+    <a href="https://www.bu40.com/qkh.html" class="mdui-list-item mdui-ripple" target="_blank" id="a8">文本行去空行</a> 
+    <a href="https://www.bu40.com/txtj.html" class="mdui-list-item mdui-ripple" target="_blank" id="a9">文本行左/右批量添加字符串</a> 
+    <a href="https://www.bu40.com/hb.html" class="mdui-list-item mdui-ripple" target="_blank" id="a10">文本列合并</a> 
+    <a href="https://www.bu40.com/cf.html" class="mdui-list-item mdui-ripple" target="_blank" id="a11">文本列拆分</a> 
+   </div> 
   </div>
-<script>
-     $.ajax({
+   <div class="mdui-m-l-1 mdui-m-r-1 mdui-m-t-1 yy s-12" mdui-panel=""> 
+    <div class="mdui-panel-item yy mdui-color-white" style="box-shadow: none;!important;webkit-box-shadow: none;"> 
+     <div class="mdui-panel-item-header ">
+      历史上的今天
+     </div> 
+     <div class="mdui-panel-item-body" id="lss">
+       正在加载中…… 
+     </div> 
+    </div> 
+   </div> 
+   <div class="mdui-typo mdui-container-fluid mdui-m-t-3 mdui-p-t-1 mdui-p-r-2 mdui-p-l-2 mdui-color-indigo mdui-center"> 
+    <a href="https://github.com/52black/52black.github.io" target="_blank">github仓库</a> 
+    <a href="javascript:if(wd){$('#wds').hide();wd=0;}else {$('#wds').show();wd=1;$('#qds').hide();qd=0;}">微信打赏</a> 
+    <a href="javascript:if(qd){$('#qds').hide();qd=0;}else {$('#qds').show();qd=1;$('#wds').hide();wd=0;}">QQ打赏</a> 
+    <a href="tencent://message/?uin=3274235903&amp;Site=&amp;Menu=yes" target="_blank">QQ:3274235903</a> 
+    <!--a href="/about" target="_blank">关于</a--> 
+    <p class="mdui-center mdui-text-color-grey-300 mdui-typo-caption">正式创建于2020年3月1日。 打赏用于域名费用等，作者是初二学生，没有钱续费域名了，给作者捐点钱吧，你的支持是作者更新的最大动力，作者做这个网站是业余爱好</p> 
+    <div id="wds">
+     微信打赏
+     <br />
+     <img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/wechat.png" />
+    </div> 
+    <div id="qds">
+     QQ打赏
+     <br />
+     <img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/QQ.png" />
+    </div> 
+    <p class="mdui-text-color-grey-100">&copy; 2020 bu40.com</p> 
+   </div> 
+   <div> 
+   </div>
+  
+  </body>
+
+  
+  <div class="mdui-dialog" id="share"> 
+    <center class="mdui-m-t-2">
+     分享
+    </center>
+    <br /> 
+    <div class=" mdui-m-r-2 mdui-m-b-4"> 
+     <ul style="list-style:none;margin:0px; "> 
+      <li style="float:left;" id="d1"></li> 
+      <li style="float:left;" id="d2" class="mdui-m-l-1"></li> 
+     </ul> 
+     <br />
+     <br />
+     <br /> 
+    </div> 
+   </div> 
+   <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script> 
+   <script type="text/javascript" src="//js.users.51.la/20606147.js"></script> 
+   <script type="text/javascript" src="//quote.51.la/q?id=20606147&amp;mb=5"></script> 
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+   <script>
+    //搜索
+      function set_(){
+      var a=$("#l1").val().toUpperCase();
+      var i=1;
+      if(a!=""){
+        $("li").hide();
+        $(".mdui-list-item").hide(); 
+        var h="#a"+i;
+        while($(h).text()!=""){
+          if($(h).text().toUpperCase().search(a)!=-1)
+          $(h).show();
+          else
+          $(h).hide();
+          i++;
+          h="#a"+i;
+      }
+      } 
+      else{
+        $("li").show();
+        $(".mdui-list-item").show();
+      } 
+    }
+      self.setInterval("set_()",5);
+      document.getElementById("d1").innerHTML='<a href=\'http://connect.qq.com/widget/shareqq/index.html?url='+window.location.href
+    +'&title='+document.title+'&source='+document.title+
+    '&desc=&pics=https://s1.ax1x.com/2020/08/29/d7nGdg.png&summary=""\' target="_blank">'+
+    '<img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/QQ.svg" width="50" height="50"></a>';
+    document.getElementById("d2").innerHTML='<a href=\'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+window.location.href
+    +'&title='+document.title+'&desc=&summary=&site='+document.title+
+    '&pics=https://s1.ax1x.com/2020/08/29/d7nGdg.png&summary=""\' target="_blank">'+
+    '<img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/kj.svg" width="50" height="50"></a>';
+    function fs() { 
+        url=window.location.href; 
+        title=document.title; 
+        if (window.sidebar) 
+            window.sidebar.addPanel(title,url,""); 
+        else if(document.all) 
+            window.external.AddFavorite(url,title); 
+        else 
+            return true; 
+    } 
+      document.getElementById('share').addEventListener('open.mdui.dialog', function () {
+        tab.handleUpdate();
+      });
+      var wd=0;
+      var qd=0;
+      $(document).ready(function(){
+        $("#wds").hide();
+        $("#qds").hide();
+      });
+    $.ajax({
         type:'GET',
         url:'https://api.nowtime.cc/v1/today_in_history',
         dataType:'json',
@@ -136,24 +169,5 @@ function fs() {
             $("#lss").html(h);
         }
     });
-</script>
-<div class="mdui-typo mdui-m-l-2">
-<a href="https://github.com/52black/52black.github.io" target="_blank">github仓库</a>
-<a href="javascript:if(wd){$('#wds').hide();wd=0;}else {$('#wds').show();wd=1;$('#qds').hide();qd=0;}">微信打赏</a>
-<a href="javascript:if(qd){$('#qds').hide();qd=0;}else {$('#qds').show();qd=1;$('#wds').hide();wd=0;}">QQ打赏</a>
-<a href="tencent://message/?uin=3274235903&Site=&Menu=yes" target="_blank">QQ:3274235903</a> 
-<!--a href="/about" target="_blank">关于</a--> 
-<p class="mdui-text-color-grey-600 mdui-typo-caption">正式创建于2020年3月1日</p>
-<p class="mdui-text-color-grey-600 mdui-typo-caption">打赏用于域名费用等，作者是初二学生，没有钱续费域名了，零花钱父母一分都不给，就连压岁钱也……跪求打赏，作者做这个网站是业余爱好</p>
-<div id="wds">微信打赏<br><img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/wechat.png"></div>
-<div id="qds">QQ打赏<br><img src="https://cdn.jsdelivr.net/gh/52black/52black.github.io/img/QQ.png"></div>
-<p class="mdui-text-color-grey-400">© 2020 bu40.com</p>
-</div>
-<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
-<script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
-<div>
-  <script type="text/javascript" src="//quote.51.la/q?id=20606147&mb=5"></script>
-  <script src="js/festival.js"></script>
-</div>
-</body>
+  </script>  
 </html>
