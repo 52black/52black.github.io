@@ -31,7 +31,7 @@
    <div class="mdui-list"> 
     <div class="mdui-textfield"> 
      <i class="mdui-icon material-icons">search</i> 
-     <input class="mdui-textfield-input" type="text" placeholder="搜索" id="l1" /> 
+     <input class="mdui-textfield-input" type="text" placeholder="搜索(支持拼音)" id="l1" /> 
     </div> 
     <li class="mdui-subheader">子站</li> 
     <a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a> 
@@ -104,6 +104,8 @@
    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
    <script>
     //搜索
+      var py=["zizhiapi","boke","yinyuexiazaiqiwangyiyun","wenbendaxiaoxiezhuanhuanqi","wenbenquchugeshi","emojidaquan","wenbenhangzuoyoubianshanqubaoliungezifu","wenbenhangqukonghang","wenbenhangzuoyoupiliangtianjiazifuchuan","wenbenliehebing","wenbenliechaifen"];
+      var yx=["zz","bk","yyxzq","wbdxxzhq","wbqcgs","dq","wbhzybsqblzf","wbhqkh","wbhzybltjzfc","wblhb","wblcf"];
       function set_(){
       var a=$("#l1").val().toUpperCase();
       var i=1;
@@ -112,7 +114,7 @@
         $(".mdui-list-item").hide(); 
         var h="#a"+i;
         while($(h).text()!=""){
-          if($(h).text().toUpperCase().search(a)!=-1)
+          if($(h).text().toUpperCase().search(a)!=-1 || py[i-1].toUpperCase().search(a)!=-1 || yx[i-1].toUpperCase().search(a)!=-1)
           $(h).show();
           else
           $(h).hide();
