@@ -14,8 +14,14 @@
   .s-12{
     -webkit-box-shadow:0 7px 8px -4px rgba(0,0,0,.1),0 12px 17px 2px rgba(0,0,0,.07),0 5px 22px 4px rgba(0,0,0,.06);box-shadow:0 7px 8px -4px rgba(0,0,0,.1),0 12px 17px 2px rgba(0,0,0,.07),0 5px 22px 4px rgba(0,0,0,.06)
   }
-　　::selection { background:#3F51B5; }
-　　::-moz-selection { background:#3F51B5; }
+  .zw ::selection{
+      background-color: #3F51B5;
+      color:white;!important;
+    }
+  .mdui-typo ::selection{
+      background-color:  #E91E63;
+      color:white;!important;
+    }
 </style>
  </head>  
 
@@ -28,7 +34,7 @@
     <a href="javascript:;" onclick="if(fs())alert('收藏失败，请按ctrl+d收藏或手动收藏');" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons" id="add" mdui-tooltip="{content: '收藏'}"></i></a> 
    </div> 
   </div> 
-  <div class="mdui-container-fluid mdui-m-l-1 mdui-m-r-1 s-12 yy mdui-color-white mdui-m-t-1"> 
+  <div class="mdui-container-fluid mdui-m-l-1 mdui-m-r-1 s-12 yy mdui-color-white mdui-m-t-1 zw"> 
    <div class="mdui-list"> 
     <div class="mdui-textfield"> 
      <i class="mdui-icon material-icons">search</i> 
@@ -49,7 +55,7 @@
     <a href="https://www.bu40.com/cf.html" class="mdui-list-item mdui-ripple" target="_blank" id="a11">文本列拆分</a> 
    </div> 
   </div>
-   <div class="mdui-m-l-1 mdui-m-r-1 mdui-m-t-1 yy s-12" mdui-panel=""> 
+   <div class="mdui-m-l-1 mdui-m-r-1 mdui-m-t-1 yy s-12 zw" mdui-panel=""> 
     <div class="mdui-panel-item yy mdui-color-white" style="box-shadow: none;!important;webkit-box-shadow: none;"> 
      <div class="mdui-panel-item-header ">
       历史上的今天
@@ -64,8 +70,10 @@
     <a href="javascript:if(wd){$('#wds').hide();wd=0;}else {$('#wds').show();wd=1;$('#qds').hide();qd=0;}">微信打赏</a> 
     <a href="javascript:if(qd){$('#qds').hide();qd=0;}else {$('#qds').show();qd=1;$('#wds').hide();wd=0;}">QQ打赏</a> 
     <a href="tencent://message/?uin=3274235903&amp;Site=&amp;Menu=yes" target="_blank">QQ:3274235903</a> 
+    <a href="https://jq.qq.com/?_wv=1027&k=S9llpCe9" target="_blank">QQ群:914623024</a> 
     <!--a href="/about" target="_blank">关于</a--> 
     <p class="mdui-center mdui-text-color-grey-300 mdui-typo-caption">正式创建于2020年3月1日。 打赏用于域名费用等，作者是初二学生，没有钱续费域名了，给作者捐点钱吧，你的支持是作者更新的最大动力，作者做这个网站是业余爱好</p> 
+    <p class="mdui-center mdui-text-color-grey-300 mdui-typo-caption" id="ip"></p>
     <div id="wds">
      微信打赏
      <br />
@@ -102,7 +110,8 @@
    <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script> 
    <script type="text/javascript" src="//js.users.51.la/20606147.js"></script> 
    <script type="text/javascript" src="//quote.51.la/q?id=20606147&amp;mb=5"></script> 
-   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> 
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2"></script> 
+   <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
    <script>
     //搜索
       var py=["zizhiapi","boke","yinyuexiazaiqiwangyiyun","wenbendaxiaoxiezhuanhuanqi","wenbenquchugeshi","emojidaquan","wenbenhangzuoyoubianshanqubaoliungezifu","wenbenhangqukonghang","wenbenhangzuoyoupiliangtianjiazifuchuan","wenbenliehebing","wenbenliechaifen"];
@@ -172,5 +181,9 @@
             $("#lss").html(h);
         }
     });
+    ip2="你的ip是"+returnCitySN.cip+" ,你在"+returnCitySN.cname;
+    $("#ip").text(ip2);
   </script>  
 </html>
+<body>
+
