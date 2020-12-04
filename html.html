@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+<meta content="B4工具集" name=keywords><meta content="B4工具集-代码在线调试器" name=description>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>B4工具集-代码在线调试器 bu40.com</title>
+</head>
+<body>
+
+<div class="mdui-appbar">
+  <div class="mdui-toolbar mdui-color-indigo">
+    <a href="http://www.bu40.com" class="mdui-typo-headline">B4工具集</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="/" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
+    <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">refresh</i></a>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>-->
+  </div>
+</div>
+
+<div class="mdui-container-fluid mdui-m-l-2">
+</br>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+function set_(){
+  $("#xx").html( $("#nr").val());
+}
+$(document).ready(function(){
+  var a=location.search.substring(1)
+  $("#nr").val(decodeURI(a));
+  set_();
+});
+</script>
+<div class="mdui-textfield">
+	<label class="mdui-textfield-label">代码</label>
+	<textarea class="mdui-textfield-input" id="nr" onKeyUp = "set_();"></textarea>
+</div>
+<br>结果：<br><p class="mdui-text-lowercase" id="xx"></p>
+</div>
+
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<script type="text/javascript" src="//js.users.51.la/20606147.js"></script>
+</body>
+</html>
