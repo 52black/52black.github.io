@@ -46,12 +46,14 @@ function set_(){
   document.getElementById("an").innerHTML='<button class="mdui-btn mdui-color-pink-accent mdui-ripple btn" data-clipboard-text="'+p2+'">复制</button>';
   }
 }
-self.setInterval("set_()",5);
+$(document).ready(function(){
+  set_();
+});
 </script>
 <p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">去空行</p>
 <div class="mdui-textfield">
-	<label class="mdui-textfield-label">要处理的内容</label>
-	<textarea class="mdui-textfield-input" id="nr">
+	<label class="mdui-textfield-label" >要处理的内容</label>
+	<textarea class="mdui-textfield-input" id="nr" onKeyUp = "set_();">
 第1行
 
 第2行

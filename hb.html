@@ -55,21 +55,23 @@ function set_(){
 }
   }
   
-self.setInterval("set_()",5);
+$(document).ready(function(){
+  set_();
+});
 </script>
 <p class="mdui-typo-headline mdui-m-l-1 mdui-m-r-1">文本列合并</p>
 
 <div class="mdui-textfield mdui-textfield-floating-label">
   <label class="mdui-textfield-label">合并分隔符</label>
-  <input class="mdui-textfield-input" type="text" id="l" value="--"/>
+  <input class="mdui-textfield-input" type="text" id="l" value="--" onKeyUp = "set_();"/>
 </div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">文本列1</label>
-	<textarea class="mdui-textfield-input" id="l1">aaa</textarea>
+	<textarea class="mdui-textfield-input" id="l1" onKeyUp = "set_();">aaa</textarea>
 </div>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">文本列2</label>
-	<textarea class="mdui-textfield-input" id="l2">aaa</textarea>
+	<textarea class="mdui-textfield-input" id="l2" onKeyUp = "set_();">aaa</textarea>
 </div>
 结果：
 <p class="mdui-typo-title" id="sc"></p>

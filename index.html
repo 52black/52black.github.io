@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
  <head> 
@@ -38,7 +39,7 @@
    <div class="mdui-list"> 
     <div class="mdui-textfield"> 
      <i class="mdui-icon material-icons">search</i> 
-     <input class="mdui-textfield-input" type="text" placeholder="搜索(支持拼音)" id="l1" /> 
+     <input class="mdui-textfield-input" type="text" placeholder="搜索(支持拼音)" id="l1" onKeyUp = "set_()"/> 
     </div> 
     <li class="mdui-subheader">子站</li> 
     <a href="http://api.bu40.com" class="mdui-list-item mdui-ripple" target="_blank" id="a1">自制API</a> 
@@ -71,6 +72,7 @@
     <a href="javascript:if(qd){$('#qds').hide();qd=0;}else {$('#qds').show();qd=1;$('#wds').hide();wd=0;}">QQ打赏</a> 
     <a href="tencent://message/?uin=3274235903&amp;Site=&amp;Menu=yes" target="_blank">QQ:3274235903</a> 
     <a href="https://jq.qq.com/?_wv=1027&k=S9llpCe9" target="_blank">QQ群:914623024</a> 
+    <a href="/help.html" target="_blank">使用条款</a> 
     <!--a href="/about" target="_blank">关于</a--> 
     <p class="mdui-center mdui-text-color-grey-300 mdui-typo-caption">正式创建于2020年3月1日。 打赏用于域名费用等，作者是初二学生，没有钱续费域名了，给作者捐点钱吧，你的支持是作者更新的最大动力，作者做这个网站是业余爱好。如果该网站侵犯了你的利益，请及时联系作者(3274235903@qq.com)，核实后作者会在第一时间进行删除处理</p> 
     <p class="mdui-center mdui-text-color-grey-300 mdui-typo-caption" id="ip"></p>
@@ -137,7 +139,6 @@
         $(".mdui-list-item").show();
       } 
     }
-      self.setInterval("set_()",5);
       document.getElementById("d1").innerHTML='<a href=\'http://connect.qq.com/widget/shareqq/index.html?url='+window.location.href
     +'&title='+document.title+'&source='+document.title+
     '&desc=&pics=https://s1.ax1x.com/2020/08/29/d7nGdg.png&summary=""\' target="_blank">'+

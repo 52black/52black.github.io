@@ -35,11 +35,13 @@ function set_(){
   }
 	
 }
-self.setInterval("set_()",5);
+$(document).ready(function(){
+  set_();
+});
 </script>
 <div class="mdui-textfield">
 	<label class="mdui-textfield-label">内容</label>
-	<textarea class="mdui-textfield-input" id="nr">Apple pen NB</textarea>
+	<textarea class="mdui-textfield-input" id="nr" onKeyUp = "set_();">Apple pen NB</textarea>
 </div>
 <br>小写：<p class="mdui-text-lowercase" id="xx">aa</p>
 <br>大写：<p class="mdui-text-uppercase " id="dx">aa</p>
