@@ -176,8 +176,13 @@
             var o = eval(data).data;
             var l=o.push();
             var h="";
+            var date = new Date(); 
             for (var i=0;i<l;i++){
-              h+=o[i].year+'年 <span class="mdui-text-color-black-secondary">'+o[i].data+"</span><br>"
+              h+=o[i].year+'年 <span class="mdui-text-color-black-secondary">'+o[i].data+"</span><br>";
+              if(date.getMonth()+1 != o[i].month || date.getDate() != o[i].day){
+                h="暂时无法加载数据，可能是你的时间设置不对或其他错误";
+                break;
+              }
             }
             $("#lss").html(h);
         }
